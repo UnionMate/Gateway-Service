@@ -1,0 +1,15 @@
+server:
+  port: 8000
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: gateway-service
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://3.34.87.16:8761/eureka
