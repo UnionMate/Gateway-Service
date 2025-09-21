@@ -19,7 +19,7 @@ public class GatewayConfiguration {
 				.filters(f -> f
 					.removeRequestHeader(HttpHeaders.COOKIE)
 				)
-				.uri("lb://backend"))
+				.uri("lb://backend-service"))
 			.build();
 	}
 }
