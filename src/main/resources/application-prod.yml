@@ -12,4 +12,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://https://43.200.160.0.nip.io:8761/eureka
+      defaultZone: https://43.200.160.0.nip.io:8761/eureka
