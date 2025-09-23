@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpHeaders;
 
 @Configuration
-@Profile({"local","dev"})
+@Profile({"local","dev","prod"})
 public class GatewayConfiguration {
 
 	@Bean
