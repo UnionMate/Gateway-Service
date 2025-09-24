@@ -21,7 +21,7 @@ public class GatewayConfiguration {
 				)
 				.uri("lb://backend-service"))
 
-			//스웨거를 위한 라우트 설정
+			//스웨거를 위한 라우트 설정(각 서비스마다 등록해줘야 합니다.)
 			.route("backend-service_api_docs", r -> r.path("/api-docs/backend/**")
 				.filters(f -> f
 					.rewritePath("/api-docs/backend/(?<rem>.*)", "/${rem}")
