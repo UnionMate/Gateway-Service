@@ -20,6 +20,13 @@ public class GatewayConfiguration {
 					.removeRequestHeader(HttpHeaders.COOKIE)
 				)
 				.uri("lb://backend-service"))
+
+			//스웨거를 위한 라우트 설정
+			.route("backend-service_api_docs", r -> r.path("/api-docs/backend/**")
+				.filters(f -> f
+					.rewritePath("/api-docs/bakcend/(?<rem>.*)", "/${rem}")
+				)
+				.uri("lb://backend-service"))
 			.build();
 	}
 }
