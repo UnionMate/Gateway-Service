@@ -1,0 +1,24 @@
+server:
+  port: 8000
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: gateway-service
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://3.34.87.16:8761/eureka
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: backend-service
+        url: /api-docs/backend/v3/api-docs
