@@ -16,7 +16,7 @@ public class GatewayConfiguration {
 		return builder.routes()
 			// 인증 필요 없는 라우트
 			// path 경로는 추후 개발에 진행되며 수정될 예정
-			.route("backend_route", r -> r.path("/back")
+			.route("backend_route", r -> r.path("/backend/**")
 				.filters(f -> f
 					.removeRequestHeader(HttpHeaders.COOKIE)
 				)
