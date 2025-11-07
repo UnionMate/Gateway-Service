@@ -14,7 +14,8 @@ public class SecurityConfig {
 	@Bean
 	public CorsWebFilter corsWebFilter() {
 		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:5173"));
+		config.setAllowedOrigins(
+			List.of("http://localhost:3000", "http://localhost:5173", "https://129.154.54.225.nip.io"));
 		config.setAllowedMethods(Arrays.asList("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
 		config.setAllowCredentials(true);
 		config.setAllowedHeaders(List.of("*"));
