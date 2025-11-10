@@ -5,7 +5,6 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.http.HttpHeaders;
 
 @Configuration
 @Profile({"local","dev","prod"})
@@ -18,7 +17,6 @@ public class GatewayConfiguration {
 			// path 경로는 추후 개발에 진행되며 수정될 예정
 			.route("backend_route", r -> r.path("/backend/**")
 				.filters(f -> f
-					.removeRequestHeader(HttpHeaders.COOKIE)
 				)
 				.uri("lb://backend-service"))
 
