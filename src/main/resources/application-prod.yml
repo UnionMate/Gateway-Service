@@ -6,6 +6,23 @@ spring:
     web-application-type: reactive
   application:
     name: gateway-service
+    
+  cloud:
+    gateway:
+      routes:
+        - id: backend-service-api-route
+          uri: lb://backend-service
+          predicates:
+            - Path=/api/backend/**
+          filters:
+            - RewritePath=/api/backend/(?<segment>.*), /${segment}
+            
+        - id: backend-service-docs-route
+          uri: lb://backend-service
+          predicates:
+            - Path=/api-docs/backend/v3/api-docs
+          filters:
+            - RewritePath=/api-docs/backend/(?<segment>.*), /${segment}
 
 eureka:
   client:
