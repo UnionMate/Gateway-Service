@@ -9,20 +9,22 @@ spring:
     
   cloud:
     gateway:
-      routes:
-        - id: backend-service-api-route
-          uri: lb://backend-service
-          predicates:
-            - Path=/api/backend/**
-          filters:
-            - RewritePath=/api/backend/(?<segment>.*), /${segment}
-            
-        - id: backend-service-docs-route
-          uri: lb://backend-service
-          predicates:
-            - Path=/api-docs/backend/v3/api-docs
-          filters:
-            - RewritePath=/api-docs/backend/(?<segment>.*), /${segment}
+      server:
+        webflux:
+          routes:
+            - id: backend-service-api-route
+              uri: lb://backend-service
+              predicates:
+                - Path=/api/backend/**
+              filters:
+                - RewritePath=/api/backend/(?<segment>.*), /${segment}
+                
+            - id: backend-service-docs-route
+              uri: lb://backend-service
+              predicates:
+                - Path=/api-docs/backend/v3/api-docs
+              filters:
+                - RewritePath=/api-docs/backend/(?<segment>.*), /${segment}
 
 eureka:
   client:
